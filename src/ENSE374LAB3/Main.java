@@ -21,6 +21,7 @@ public class Main {
 		//myList.deleteElemeent(7); // middle of the list
 
 		myList.printLinkedListHead();
+		myList.printLinkedListTail();
 		
 	}
 }

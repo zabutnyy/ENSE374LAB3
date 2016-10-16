@@ -4,6 +4,7 @@ public class LinkedLists
 {
 	
 	private ListElement head; //the first node in a linked list
+	private ListElement tail; //the last node in the list
 	
 	public LinkedLists() //head constructor to null
 	{
@@ -22,7 +23,9 @@ public class LinkedLists
 		{
 			node = node.getNext(); //traverse the list by going to the next pointer
 		}
+		le.setPrevious(node); //the new nodes previous is set to the current node
 		node.setNext(le); //set the last node to to the data passed in le
+		tail = le; // update the tail to the new element 
 	}
 	
 	public ListElement getElement(int index) 
@@ -71,6 +74,8 @@ public class LinkedLists
 					else //if the node is in the middle of the list we need to link but setting the next of the previous field to point to the next next
 					{
 						node.setNext(node.getNext().getNext());
+						node.getNext().setPrevious(node); //have to set the next node's previous field to point to current nod
+
 					}
 					return;
 				}
@@ -81,8 +86,8 @@ public class LinkedLists
 	
 	public void printLinkedListHead() 
 	{
-		System.out.println("Linked List: ");
-		ListElement node = head; // set the nod to head
+		System.out.println("Linked Head List: ");
+		ListElement node = head; // set the node to head
 		if (node == null) //if there is no head, there is no list, just return
 		{
 			return;
@@ -91,6 +96,22 @@ public class LinkedLists
 		while (node.getNext() != null) //traversal by checking next
 		{ 
 			node = node.getNext(); //forward in the list
+			System.out.println(node.getData()); //printing the data of each element as we go through
+		}
+	}
+	
+	public void printLinkedListTail() 
+	{
+		System.out.println("Linked Tail List: ");
+		ListElement node = tail; // set the node to tail
+		if (node == null) //if there is no tail, there is no list, just return
+		{
+			return;
+		}
+		System.out.println(node.getData()); //print the data of the tail node
+		while (node.getPrevious() != null) //traversal by checking previous
+		{
+			node = node.getPrevious(); //backwards in the list
 			System.out.println(node.getData()); //printing the data of each element as we go through
 		}
 	}

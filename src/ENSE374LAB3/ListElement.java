@@ -25,12 +25,22 @@ public class ListElement
 	
 	public ListElement getNext() 
 	{
-		return next;
+		return this.next;
 	}
 	
 	public void setNext(ListElement newNext) 
 	{
-		next = newNext;
+		this.next = newNext;
+	}
+	
+	public ListElement getPrevious() 
+	{
+		return this.previous;
+	}
+	
+	public void setPrevious(ListElement newPrevious) 
+	{
+		this.previous = newPrevious;
 	}
 
 }
